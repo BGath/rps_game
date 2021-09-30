@@ -1,8 +1,3 @@
-/*Rock, Paper, Scissors
-comp randomly chooses from 3 options
-each option returns either Rock, Paper, Scissor
-Compare user input to comp answer
-*/
 let playerScore = 0;
 let computerScore = 0;
 
@@ -31,31 +26,32 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//converts player answer to lowercase
 const playerSelection = (prompt('Choose your Weapon!')).toLowerCase();
 const computerSelection = computerPlay();
 
-//Run playRound 5 times
-//Keeps score for user
-//keep score for computer
-//reports a winner at the end
+function keepScore() {
+
+    if (playerScore > computerScore) {
+        return "All Hail the New King!";
+    } else if (playerScore < computerScore) {
+        return "Sucks to suck, sucka";
+    } else {
+        return "Ready to Try Again?";
+    }
+}
 
 
 function game() {
-    
 
 for (let round = 0; round < 5; round++) {
     let results = playRound(playerSelection, computerSelection);
-    console.log(results);
+    console.log(playerScore);
+    console.log(computerScore);
+    return results;
 }    
 
-if (playerScore > computerScore) {
-    return "All Hail the New King!"
-} else if (playerScore < computerScore) {
-    return "Sucks to suck, sucka"
-} else {
-    return "Ready to Try Again?"
-}
+keepScore();
+
 }
 
-console.log(game(playerScore, computerScore));
+console.log(game());
